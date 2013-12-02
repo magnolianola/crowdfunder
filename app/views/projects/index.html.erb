@@ -1,2 +1,12 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<h1>Crowdfunder</h1>
+
+<%= link_to "Post New Project", new_project_path %>
+
+<% @projects.each do |p| %>
+<div>
+	<%= link_to p.name, project_path(p) %><br/>
+	<%= p.description %>
+	$<%= p.total_cost %>.00
+	<%= display_date(p.deadline) %>
+</div>
+<% end %>

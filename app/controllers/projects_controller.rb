@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
+  before_filter :ensure_logged_in, :except => [:index, :show]
   def index
-    @projects = Projects.all
+    @projects = Project.all
   end
 
   def show

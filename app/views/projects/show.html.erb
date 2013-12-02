@@ -1,2 +1,8 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<h1><%= @project.name %></h1>
+
+<%= @project.description %>
+<p> This project will cost a total of $<%= @project.total_cost %>.00.</p>
+<p>This project must be funded by <%= display_date(@project.deadline) %>.</p>
+
+<%= link_to "Contribute to this Project!", new_project_contribution_path(@project) %>
+<p>Sum of Contributions Thus Far: $<%= total_contributions(@project.contributions) %>.00</p>
