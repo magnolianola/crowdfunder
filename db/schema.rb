@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203193100) do
+ActiveRecord::Schema.define(version: 20131203201440) do
 
   create_table "contributions", force: true do |t|
     t.integer  "project_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20131203193100) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "profile"
   end
 
 end

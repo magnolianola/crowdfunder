@@ -8,7 +8,7 @@ Crowdfunder::Application.routes.draw do
   resources :projects do
     resources :contributions
   end
-  resources :users, :only => [:new, :create, :show]
+  resources :users, :only => [:new, :create, :show, :update]
   resources :sessions, :only => [:new, :create, :destroy]
 
   root :to => "projects#index"

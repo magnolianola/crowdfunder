@@ -1,5 +1,14 @@
 <h1>My Profile</h1>
 
+<h2>About Me</h2>
+<%= @user.profile %>
+
+	<%= form_for(current_user) do |f| %>
+	<%= f.text_area :profile %>
+
+	<%= f.submit %>
+<% end %>
+
 <p>My Projects</p>
 <!--all project ids made by one user id-->
 
