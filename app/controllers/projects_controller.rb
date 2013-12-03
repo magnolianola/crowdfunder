@@ -6,6 +6,10 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+
+    if current_user
+      @project_update = ProjectUpdate.new
+    end
   end
 
   def new

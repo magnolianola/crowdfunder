@@ -14,7 +14,12 @@
 	Created: <%= display_date(p.created_at) %>, 
 	Deadline: <%= display_date(p.deadline) %> </li>
 </div>
+
+<% if p.user == current_user %>
+<%= link_to "Edit This Project", edit_project_path(p) %>
+<% end %>
 <% end %>
 
 <p>Total Contributions:</p> 
 $<%= total_contributions(Contribution.all)%>.00
+

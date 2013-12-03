@@ -1,4 +1,6 @@
 Crowdfunder::Application.routes.draw do
+  # get "project_updates/show"
+  # get "project_updates/new"
   # get "contributions/new"
   # get "contributions/create"
   # get "contributions/show"
@@ -7,6 +9,7 @@ Crowdfunder::Application.routes.draw do
   # get "sessions/destroy"
   resources :projects do
     resources :contributions
+    resources :project_updates
   end
   resources :users, :only => [:new, :create, :show, :update]
   resources :sessions, :only => [:new, :create, :destroy]
