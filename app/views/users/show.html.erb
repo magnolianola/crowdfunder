@@ -1,0 +1,23 @@
+<h1>My Profile</h1>
+
+<p>My Projects</p>
+<!--all project ids made by one user id-->
+
+<% @user.projects.each do |y| %>
+<li><%= y.name %></li>
+<% end %>
+
+<p>Latest Contributions</p>
+<!--all contribution ids made by one user id
+	listed by project name -->
+
+<% @user.contributions.each do |x| %>
+<% a = Project.find(x.project_id) %>
+<li><%= a.name %> - $<%= x.amount %>.00 </li>
+
+<% end %>
+
+
+<p><%= link_to "Back to Home", projects_url %></p>
+
+

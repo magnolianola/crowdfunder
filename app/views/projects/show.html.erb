@@ -6,3 +6,7 @@
 
 <%= link_to "Contribute to this Project!", new_project_contribution_path(@project) %>
 <p>Sum of Contributions Thus Far: $<%= total_contributions(@project.contributions) %>.00</p>
+
+<% if total_contributions(@project.contributions) >= @project.total_cost %>
+	<%= "Fully Funded!" %>
+<% end %>
