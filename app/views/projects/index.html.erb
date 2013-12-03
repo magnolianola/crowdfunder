@@ -1,5 +1,10 @@
 <h1>Crowdfunder</h1>
+<% if current_user %>
 <%= link_to "My Profile", user_path(current_user) %> / <%= link_to "Post New Project", new_project_path %>
+<% end %>
+
+
+
 
 <% @projects.each do |p| %>
 <div>
@@ -10,3 +15,6 @@
 	Deadline: <%= display_date(p.deadline) %> </li>
 </div>
 <% end %>
+
+<p>Total Contributions:</p> 
+$<%= total_contributions(Contribution.all)%>.00
