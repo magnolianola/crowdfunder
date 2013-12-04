@@ -1,7 +1,11 @@
 class ProjectsController < ApplicationController
   before_filter :ensure_logged_in, :except => [:index, :show]
   def index
-    @projects = Project.all
+    if params[:tag]
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project.all
+    end
   end
 
   def show
@@ -49,6 +53,7 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :total_cost, :deadline)
+    params.require(:project).permit(:name, :description, :total_cost, :deadline, :tag_list)
+
   end
 end

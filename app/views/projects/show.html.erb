@@ -3,7 +3,7 @@
 <%= @project.description %>
 <p> This project will cost a total of $<%= @project.total_cost %>.00.</p>
 <p>This project must be funded by <%= display_date(@project.deadline) %>.</p>
-
+<p>Tags: <%= raw @project.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %></p>
 <%= link_to "Contribute to this Project!", new_project_contribution_path(@project) %>
 <p>Sum of Contributions Thus Far: $<%= total_contributions(@project.contributions) %>.00</p>
 

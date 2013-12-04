@@ -3,7 +3,11 @@
 <%= link_to "My Profile", user_path(current_user) %> / <%= link_to "Post New Project", new_project_path %>
 <% end %>
 
-
+<div id="tag_cloud">
+	<% tag_cloud Project.tag_counts, %w[s m l] do |tag, css_class| %>
+		<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+	<% end %>
+</div>
 
 
 <% @projects.each do |p| %>
@@ -12,8 +16,12 @@
 	<%= p.description %>
 	$<%= p.total_cost %>.00,
 	Created: <%= display_date(p.created_at) %>, 
-	Deadline: <%= display_date(p.deadline) %> </li>
+	Deadline: <%= display_date(p.deadline) %>,
+	Tags: <%= raw p.tag_list.map {|t| link_to t, tag_path(t)}.join(', ') %>
+</li>
 </div>
+
+
 
 <% if p.user == current_user %>
 <%= link_to "Edit This Project", edit_project_path(p) %>
